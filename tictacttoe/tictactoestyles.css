@@ -1,0 +1,174 @@
+:root{
+    --black: #000000;
+    --mainColor:#02e3c1;
+    --secondaryColor:#fd1c50;
+    --greyText:#BABABA;
+    --whiteText:#ffffff;
+    --mainFont: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+.squareFlip{
+    transform: rotateY(180deg);
+    transition: transform 2s;
+}
+
+.square{
+    border: 1px solid white;
+    background-color: var(--secondaryColor);
+    color: var(--whiteText);
+    padding: 20px;
+    width: 100px;
+    height: 100px;
+    
+    font-size: 60px;
+    cursor: pointer;
+
+    font-family: var(--mainFont);
+    
+    text-align: center;
+    vertical-align: middle;
+    line-height: 50px; 
+
+    
+    
+}
+
+.winner{
+    background-color: var(--mainColor);
+}
+
+/* .gameBoard .row{
+    display: flex;
+    justify-content: center;
+    
+} */
+
+
+
+.game{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    justify-content: center;
+    align-items: flex-end;
+    align-content: center;
+    margin-top: 200px;
+}
+
+.game h4{
+    
+    text-align: center;
+    
+}
+
+.gameBoard{
+    padding-right: 50px;
+}
+
+.ticButtons{
+    text-align: center;
+    margin-right: 103px;
+}
+
+.game button{
+    width:5em;   
+    margin-top: 10px;
+    text-align: center;
+}
+
+.ticButtons .btn{
+    border: 1px solid black;
+    background-color: #000000;
+    color: white;
+}
+
+.ticButtons .btn:hover{
+background-color: #333333;
+border: 1px solid #333333;
+
+}
+
+/* .gameBoard{
+    
+
+} */
+
+
+/* #overlayTwo {
+    position: absolute;
+    display: none;
+    width: 500px;
+    height: 100%;
+
+    background-color: rgba(0,0,0,.5);
+    z-index: 100;
+  } */
+
+  #overlay{
+    position: absolute;
+    display: none;
+    width:  300px;
+    height: 300px;
+    right: 0;
+    background-color: rgba(0,0,0,.4);
+    z-index: 100;
+
+    margin-right: 50px;
+
+  }
+
+  
+
+  @media screen and (max-width: 993px) {
+
+    .game{
+        align-items: center;
+        margin-top: 10px !important;
+    }
+    .game h4{
+    
+        padding-right: 0px;
+        
+    }
+    .game button{
+        margin-top: 20px;
+        width:5em;   
+        text-align: center;
+    }
+
+    .ticButtons{
+        margin-right: 0px;
+    }
+
+    #overlay{
+        right: auto;
+        margin-right: auto;
+        
+        
+    }
+
+    .row{
+        margin-left: 0px;
+    }
+
+    .gameBoard{
+        padding-right: 0px;
+    }
+
+  }
+
+  @media screen and (max-height: 890px) {
+    .game{
+        margin-top: 100px;
+    }
+
+  }
+
+  @media screen and (max-height: 750px) {
+    .game{
+        margin-top: 50px;
+    }
+
+  }

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="./tictacttoe/tictactoestyles.css">
+</head>
+<body onload="ShowLocalStorage()">
+    <div class="full-height">
+        <div class="topnav myNav content" id="myTopnav">
+            <img src="images/TC_Neon.svg" alt="">
+            <a class="navButtons" href="./tictacttoe/tictactoe.html">Contact</a>
+            <a class="navButtons" href="#projects">Projects</a>
+            <a class="navButtons" href="#about">Skills</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+            </a>
+        </div>
+
+        <div class="container mainIntro">
+            <div class="row mainRow">
+                <div class="col-sm-12 col-lg-6">
+                    <h2>Hi, my name is </h2>
+                    <h1>Tyler Colson</h1>
+                    <p>Front-End Developer |  Information Systems Graduate</p>
+                </div>
+            
+            <div class="game col-sm-12 col-lg-6" id="game">
+
+
+                <h3>Try to Beat My Tic-Tac-Toe AI!</h3>
+                <br>
+               
+                <div class="gameBoard" id="gameBoard">
+                    <div id="overlay"></div>
+                    
+                    <div class="row">
+                        <div class="square" id="square0" onclick="AiThinks(id)">
+                            
+                        </div>
+                        <div class="square" id="square1" onclick="AiThinks(id)">
+        
+                        </div>
+                        <div class="square" id="square2" onclick="AiThinks(id)">
+        
+                        </div>
+        
+                    </div>    
+                    <div class="row">
+                        <div class="square" id="square3" onclick="AiThinks(id)">
+        
+                        </div>
+                        <div class="square" id="square4" onclick="AiThinks(id)">
+        
+                        </div>
+                        <div class="square" id="square5" onclick="AiThinks(id)">
+        
+                        </div>
+        
+                    </div>  
+                    <div class="row">
+                        <div class="square" id="square6" onclick="AiThinks(id)">
+        
+                        </div>
+                        <div class="square" id="square7" onclick="AiThinks(id)">
+        
+                        </div>
+                        <div class="square" id="square8" onclick="AiThinks(id)">
+        
+                        </div>
+        
+                    </div>   
+                    <h4 id="tellFirst">Good Luck!</h4>     
+                </div>
+                
+                <div class="ticButtons">
+                    <button type="button" class="btn"  onclick="WhoIsFirst()" id="playButton">PLAY</button>
+                    <button type="reset" class="btn"  onclick="reset()" id="resetButton">RESET</button>
+                </div>
+                
+            </div>
+            <div id="wins">a</div>
+            <div id="ties">a</div>
+            <div id="losses">s</div>
+            <div id="totalPlayed">v</div>
+        </div>
+        
+        </div>
+
+
+
+
+
+
+
+
+
+
+        <div class="container arrowDownContainer" href="#about">
+            <a href="#about">
+                <div class="arrowDownDiv">
+                    <div class="chevron"></div>
+                    <div class="chevron"></div>
+                    <div class="chevron"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+
+
+<div class="container about removeFullHeight" id="about">
+    <div class="row">
+        <div class="col-sm-12 col-lg-6">
+            <h2 style="color: var(--mainColor);">a little about me...</h2>
+            <p class="aboutP">Hello! I'm Tyler and put simply, I love to code. My coding experience began during the spring of 2020 when I wrote my first, 
+                "Hello, World" in my JavaScript development class. Since that day, I have enjoyed exploring the tech world and finding things 
+                that both inspire and intrigue me. I enjoy designing and developing websites for businesses and finding ways to leverage technology 
+                for their benefit. I am excited to continue to leave my mark on the world!</p>
+            </div>
+        <div class="col-sm-12 col-lg-6 aboutImg">
+            <img src="images/tyler&abby.jpg"  walt="">
+        </div>
+    </div>
+<br><br>
+        <div class="row skillCards">
+            <div class="col-lg-4 col-sm-12 skillCard">
+                <h2>Front-End</h2>
+                <br>
+                <b><p>Languages</p></b>
+                <p>HTML, CSS, JavaScript, Python</p>
+                <br>
+                <b><p>Frameworks | Libraries | Tools</p></b>
+                <p>SASS, Flexbox,Bootstrap, GitHub</p>
+            </div>
+            <div class="col-lg-4 col-sm-12 skillCard">
+                <h2>Back-End</h2>
+                <br>
+                <b><p>Languages</p></b>
+                <p>SQL Python</p>
+                <br>
+                <b><p>Frameworks | Libraries | Tools</p></b> 
+                <p>Django, SQL Server, PostgreSQL, ASP.NET Core, Linux, AWS, Bluehost, Google Cloud Web Hosting</p>
+            </div> 
+            <div class="col-lg-4 col-sm-12 skillCard">
+                <h2>Machine Learning</h2>
+                <br>
+                <b><p>Languages</p></b>
+                <p>Python</p>
+                <br>
+                <b><p>Experience With</p></b>
+                
+                <div class="row" style="text-align:left">
+                    <div class="col-6">
+                        Data Collection<br>
+                        Feature Cleaning<br>
+                        MLR Classification & Modeling<br>
+
+                    </div>
+                    <div class="col-6">
+                        Forecasting & Clustering<br>
+                        Text Analytics<br>
+                        Image Classification<br>
+                        Automation & Pipelines<br>
+                    </div>
+                </div>
+
+            </div> 
+        </div>
+
+</div>
+
+
+<div class="removeFullHeight container projects " id="projects">
+    <h2 style="color: var(--mainColor);">check out some of the projects I've completed...</h2>
+    
+
+    <div class="row">
+        <div class="card projectCard col-sm-12 col-lg-4" style="width: 30em;">
+            <a href="https://www.sc.builders/"><img class="card-img-top" src="images/SCBuildersTylerPortfolio.png" alt="Card image cap"></a>
+            <a href="https://www.sc.builders/"><div class="overlay"><button type="button" class="btn btn-outline-light">View Project</button></div></a>
+            <div class="card-body">
+              <p class="card-text">Custom website for SC Builders Construction.
+              </p>
+            </div>
+          </div>
+          <div class="card projectCard col-sm-12 col-lg-4" style="width: 30em;">
+            <a href="https://abbycolson.com/"><img class="card-img-top" src="images/AbbyMusicTylerPortfolio.png" alt="Card image cap"></a>
+            <a href="https://abbycolson.com/"><div class="overlay"><button type="button" class="btn btn-outline-light">View Project</button></div></a>
+            <div class="card-body">
+              <p class="card-text">Custom landing page for piano and violin teacher in Provo.
+              </p>
+            </div>
+        </div>
+    </div>
+   
+        <div class="row">
+          <div class="card projectCard col-sm-12 col-lg-4" style="width: 30em;">
+            <a href="http://myblackcyberrecruiter.herokuapp.com/"><img class="card-img-top" src="images/BlackCyberRecruiterTylerPortfolio.png" alt="Card image cap"></a>
+            <a href="http://myblackcyberrecruiter.herokuapp.com/"><div class="overlay"><button type="button" class="btn btn-outline-light">View Project</button></div></a>
+            <div class="card-body">
+              <p class="card-text">A "LinkedIn" like site for minority groups.
+              </p>
+            </div>
+          </div>
+          <div class="card projectCard col-sm-12 col-lg-4" style="width: 30em;">
+            <a href="https://www.myfinanceeducator.com/index.html"><img class="card-img-top" src="images/FinanceTylerPortfolio.png" alt="Card image cap"></a>
+            <a href="https://www.myfinanceeducator.com/index.html"><div class="overlay"><button type="button" class="btn btn-outline-light">View Project</button></div></a>
+            <div class="card-body">
+              <p class="card-text">A financial site helping young adults feel more confident about finances.
+              </p>
+            </div>
+          </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+      <br><br><br><br>
+
+      <div class="gg-shape-triangle"></div>
+
+      
+</body>
+<script src="main.js"></script>
+<script src="./tictacttoe/tictactoe.js"></script>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</html>

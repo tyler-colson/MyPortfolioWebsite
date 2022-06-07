@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./tictactoestyles.css">
+</head>
+<body>
+    
+    <div class="game" id="game">
+        
+        <div id="overlay"></div>
+
+        <div class="gameBoard" id="gameBoard">
+            <div id="overlayTwo"></div>
+            
+            <div class="row">
+                <div class="square" id="square0" onclick="AiThinks(id)">
+                    
+                </div>
+                <div class="square" id="square1" onclick="AiThinks(id)">
+
+                </div>
+                <div class="square" id="square2" onclick="AiThinks(id)">
+
+                </div>
+
+            </div>    
+            <div class="row">
+                <div class="square" id="square3" onclick="AiThinks(id)">
+
+                </div>
+                <div class="square" id="square4" onclick="AiThinks(id)">
+
+                </div>
+                <div class="square" id="square5" onclick="AiThinks(id)">
+
+                </div>
+
+            </div>  
+            <div class="row">
+                <div class="square" id="square6" onclick="AiThinks(id)">
+
+                </div>
+                <div class="square" id="square7" onclick="AiThinks(id)">
+
+                </div>
+                <div class="square" id="square8" onclick="AiThinks(id)">
+
+                </div>
+
+            </div>        
+        </div>
+
+        <div>
+            <button type="button" onclick="WhoIsFirst()" id="playButton">Play</button>
+            <button type="reset" onclick="reset()">Reset</button>
+        </div>
+
+        <br><br>
+        <div id="tellFirst"></div>
+        <div id="wins"></div>
+        <div id="ties"></div>
+        <div id="losses"></div>
+        <div id="totalPlayed"></div>
+    </div>
+
+
+    
+    <script src="./tictactoe.js"></script>
+</body>
+</html>
