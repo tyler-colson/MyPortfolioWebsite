@@ -12,12 +12,13 @@
     <link rel="stylesheet" href="./tictacttoe/tictactoestyles.css">
 </head>
 <body onload="ShowLocalStorage()">
-    <div class="full-height">
+    <div class="full-height removeFullHeightMain">
         <div class="topnav myNav content" id="myTopnav">
-            <img src="images/TC_Neon.svg" alt="">
-            <a class="navButtons" href="./tictacttoe/tictactoe.html">Contact</a>
-            <a class="navButtons" href="#projects">Projects</a>
-            <a class="navButtons" href="#about">Skills</a>
+            <a href="#"><img src="images/TC_Neon.svg" alt=""></a>
+            
+            <a class="navButtons navItems" href="#">Contact</a>
+            <a class="navButtons navItems" href="#projects">Projects</a>
+            <a class="navButtons navItems" href="#about">Skills</a>
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
             <i class="fa fa-bars"></i>
             </a>
@@ -35,7 +36,13 @@
 
 
                 <h3>Try to Beat My Tic-Tac-Toe AI!</h3>
-                <br>
+                <div class="stats">
+                    <h6 id="totalPlayed"></h6>
+                    <h6 id="wins"></h6>
+                    <h6 id="ties"></h6>
+                    <h6 id="losses"></h6>
+                    
+                </div>
                
                 <div class="gameBoard" id="gameBoard">
                     <div id="overlay"></div>
@@ -85,10 +92,7 @@
                 </div>
                 
             </div>
-            <div id="wins">a</div>
-            <div id="ties">a</div>
-            <div id="losses">s</div>
-            <div id="totalPlayed">v</div>
+
         </div>
         
         </div>
@@ -97,20 +101,23 @@
 
 
 
+<!-- <div class="plz">
+    <div class="container arrowDownContainer" href="#about">
+        <a class="done" href="#about">
+            <div class="arrowDownDiv">
+                <div class="chevron"></div>
+                <div class="chevron"></div>
+                <div class="chevron"></div>
+            </div>
+        </a>
+    </div>
+
+</div> -->
 
 
 
 
 
-        <div class="container arrowDownContainer" href="#about">
-            <a href="#about">
-                <div class="arrowDownDiv">
-                    <div class="chevron"></div>
-                    <div class="chevron"></div>
-                    <div class="chevron"></div>
-                </div>
-            </a>
-        </div>
     </div>
 
 
@@ -118,7 +125,7 @@
 <div class="container about removeFullHeight" id="about">
     <div class="row">
         <div class="col-sm-12 col-lg-6">
-            <h2 style="color: var(--mainColor);">a little about me...</h2>
+            <h2 style="color: var(--mainColor);" class="aboutMe">a little about me...</h2>
             <p class="aboutP">Hello! I'm Tyler and put simply, I love to code. My coding experience began during the spring of 2020 when I wrote my first, 
                 "Hello, World" in my JavaScript development class. Since that day, I have enjoyed exploring the tech world and finding things 
                 that both inspire and intrigue me. I enjoy designing and developing websites for businesses and finding ways to leverage technology 

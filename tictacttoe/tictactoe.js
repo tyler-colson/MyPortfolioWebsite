@@ -24,8 +24,10 @@ let losses=0;
 let myTies=0;
 let totalPlayed=0;
 
-let timeoutAmount=1500;
+let timeoutAmount=2000;
 let overlayTime=2500;
+
+let overlaySwitch;
 
 
 
@@ -79,15 +81,18 @@ function checkWin(id)
                         aiWon=true;
                         UpdateLocalWinStorage();
                         win=true;
+                        OverlayOn();
                     }
                     else{
                         document.getElementById("tellFirst").innerHTML="Congrats, you won.";
                         UpdateLocalLossStorage();
                         userWon=true;
                         win=true;
+                        OverlayOn();
 
                     }
 
+                    
                     UpdateLocalGamesPlayedStorage();
                     document.getElementById("square"+c1).classList.add("winner");
                     document.getElementById("square"+c2).classList.add("winner");
@@ -96,7 +101,8 @@ function checkWin(id)
 
                     winningCombo=[c1,c2,c3];
 
-
+                    OverlayOn();
+                    return;
                 }
         }
     }
@@ -138,6 +144,7 @@ function checkTie(){
             document.getElementById("resetButton").disabled=false;
             UpdateLocalTieStorage();
             UpdateLocalGamesPlayedStorage();
+            OverlayOn();
             return;
         }
     }
@@ -146,46 +153,56 @@ function checkTie(){
 function UpdateLocalTieStorage(){
     let tries = (parseInt(localStorage.getItem("ties"))+1);
     localStorage.setItem("ties", tries.toString());
-    document.getElementById("ties").innerHTML = "AI Ties: " + localStorage.getItem("ties");
+    document.getElementById("ties").innerHTML = " "+ "Ties: " + localStorage.getItem("ties");
+    OverlayOn();
     return;
 }
 
 function UpdateLocalGamesPlayedStorage(){
     localStorage.setItem("gamesPlayed", (parseInt(localStorage.getItem("gamesPlayed"))+1));
-    document.getElementById("totalPlayed").innerHTML = "AI Games Played: " + localStorage.getItem("gamesPlayed");
+    document.getElementById("totalPlayed").innerHTML = "Games Played: " + localStorage.getItem("gamesPlayed");
+    OverlayOn();
     return;
 }
 
 function UpdateLocalWinStorage(){
     localStorage.setItem("wins", (parseInt(localStorage.getItem("wins"))+1));
-    document.getElementById("wins").innerHTML = "AI Wins: " + localStorage.getItem("wins");
+    document.getElementById("wins").innerHTML = "Wins: " + localStorage.getItem("wins");
+    OverlayOn();
     return;
 }
 
 function UpdateLocalLossStorage(){
     localStorage.setItem("losses", (parseInt(localStorage.getItem("losses"))+1));
-    document.getElementById("losses").innerHTML = "AI Losses: " + localStorage.getItem("losses");
+    document.getElementById("losses").innerHTML = "Losses: " + localStorage.getItem("losses");
+    OverlayOn();
     return;
 }
 
 function ShowLocalStorage(){
-    
-// localStorage.clear()
-// localStorage.setItem("ties",myTies);
-// localStorage.setItem("gamesPlayed", totalPlayed)
-// localStorage.setItem("wins",myTies);
-// localStorage.setItem("losses", totalPlayed)
+if(localStorage.getItem("wins")===null){
+    localStorage.clear();
+    localStorage.setItem("ties", myTies);
+    localStorage.setItem("gamesPlayed", totalPlayed);
+    localStorage.setItem("wins", myTies);
+    localStorage.setItem("losses", totalPlayed);
 
-let localTies = localStorage.getItem("ties");
-let localGamesPlayed = localStorage.getItem("gamesPlayed");
-let localWins = localStorage.getItem("wins");
-let localLosses = localStorage.getItem("losses");
+    alert("test");
+}
+    localTies = localStorage.getItem("ties");
+    let localGamesPlayed = localStorage.getItem("gamesPlayed");
+    let localWins = localStorage.getItem("wins");
+    let localLosses = localStorage.getItem("losses");
 
 
-document.getElementById("ties").innerHTML= "AI Ties: " + localTies;
-document.getElementById("totalPlayed").innerHTML= "AI Games Played: " + localGamesPlayed;
-document.getElementById("wins").innerHTML= "AI Wins: " + localWins;
-document.getElementById("losses").innerHTML= "AI Losses: " + localLosses;
+
+
+
+
+document.getElementById("ties").innerHTML= "Ties: " + localTies;
+document.getElementById("totalPlayed").innerHTML= "Games Played: " + localGamesPlayed;
+document.getElementById("wins").innerHTML= "Wins: " + localWins;
+document.getElementById("losses").innerHTML= "Losses: " + localLosses;
 }
 
 
@@ -268,11 +285,19 @@ function WhoIsFirst(){
 }
 
 function OverlayOn() {
-    document.getElementById("overlay").style.display = "block";
+    if (document.getElementById("overlay").style.display=="block"){
+
+    }
+    else{
+        document.getElementById("overlay").style.display = "block";
+        overlaySwitch="on"
+    }
+;
   }
 
   function OverlayOff() {
     document.getElementById("overlay").style.display = "none";
+    overlaySwitch="off";
   }
 
 //   function OverlayTwoOn() {
@@ -326,7 +351,6 @@ function AiThinks(id){
     if(win==true||tieGame==true){
         return;
     }
-
     else if(win==false && invalidTile == false && tieGame==false)
     {
 
@@ -341,10 +365,9 @@ function AiThinks(id){
 
 function AiMoves(squarenum){
 
-    if(document.getElementById("square"+squarenum).innerHTML == "X" || document.getElementById("square"+squarenum).innerHTML == "O"){
+    if((document.getElementById("square"+squarenum).innerHTML == "X" || document.getElementById("square"+squarenum).innerHTML == "O")&& win==true || tieGame==true){
 
     }
-
     else{
         if (xotoggle =="X") {
             xotoggle = "O";
@@ -360,11 +383,17 @@ function AiMoves(squarenum){
             document.getElementById("square"+squarenum).innerHTML = xotoggle;
         }, 600);
         const mytimeout = setTimeout(RemoveSquareFlip, 2000, "square"+squarenum);
+
+        if(win==false && tieGame==false){
+            const overlayMytimeout = setTimeout(OverlayOff, 1500);
+            checkWin("square"+squarenum);
+        }
+
     }
 
 
-    const overlayMytimeout = setTimeout(OverlayOff, 1500);
-    checkWin("square"+squarenum);
+
+
     
 }
 

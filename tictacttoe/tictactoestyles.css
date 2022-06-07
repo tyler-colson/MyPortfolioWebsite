@@ -44,7 +44,13 @@
     
 } */
 
+.stats{
+    display: flex;
+}
 
+.stats h6{
+    padding: 12px;
+}
 
 .game{
     display: flex;
@@ -54,7 +60,11 @@
     justify-content: center;
     align-items: flex-end;
     align-content: center;
-    margin-top: 200px;
+    margin-top: 0px;
+}
+
+#tellFirst{
+    margin-top: 10px;
 }
 
 .game h4{
@@ -119,6 +129,10 @@ border: 1px solid #333333;
 
   }
 
+
+
+
+
   
 
   @media screen and (max-width: 993px) {
@@ -126,6 +140,8 @@ border: 1px solid #333333;
     .game{
         align-items: center;
         margin-top: 10px !important;
+        /* position: absolute; */
+        
     }
     .game h4{
     
@@ -149,12 +165,14 @@ border: 1px solid #333333;
         
     }
 
-    .row{
-        margin-left: 0px;
-    }
 
     .gameBoard{
         padding-right: 0px;
+    }
+
+    .gameBoard .row{
+        padding-right: 15px!important;
+        margin-left: 0px;
     }
 
   }
